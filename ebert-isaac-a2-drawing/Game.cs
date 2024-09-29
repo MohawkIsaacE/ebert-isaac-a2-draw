@@ -368,9 +368,9 @@ namespace Game10003
             Draw.FillColor = positiveColour;
             Draw.Rectangle(x + 260, y, 60, 80);
             Draw.FillColor = negativeColour;
-            Draw.Triangle(x + 280, y, x + 280, y + 30, x + 360, y);
-            Draw.Triangle(x + 280, y + 60, x + 320, y + 90, x + 360, y + 60);
-            Draw.Triangle(x + 300, y + 40, x + 360, y + 20, x + 360, y + 60);
+            Draw.Triangle(x + 280, y, x + 280, y + 30, x + 320, y);
+            Draw.Triangle(x + 280, y + 50, x + 280, y + 80, x + 320, y + 80);
+            Draw.Triangle(x + 300, y + 40, x + 320, y + 20, x + 320, y + 60);
 
         }
     }
