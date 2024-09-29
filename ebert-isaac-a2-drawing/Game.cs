@@ -12,12 +12,10 @@ namespace Game10003
     {
         // Place your variables here:
         bool isShinyArticuno = false;
-        bool isShinyZapdos = false;
-        bool isShinyMoltres = false;
+        Color border = Color.DarkGray;
+        Color background = Color.LightGray;
         Color outline = Color.Black;
-        Color[] articuno = [];
-        Color[] shinyArticuno = [];
-
+        Color inside = Color.Blue;
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -33,40 +31,43 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
+            Color[] articunoColours = [border, background, outline, inside];
+            Color[] shinyArticunoColours = [border, background, outline];
+
             Window.ClearBackground(Color.OffWhite);
 
-            DrawBackground();
-            DrawArticuno(55, 60);
+            DrawArticuno(55, 60, articunoColours);
         }
 
         /// <summary>
         ///     Draws the Articuno sprite at a given location
         /// </summary>
-        public void DrawArticuno(int x, int y)
+        public void DrawArticuno(int x, int y, Color[] colours)
         {
-            DrawOutline(x, y);
-
-            // Draws the inside
+            DrawBackground(colours[0], colours[1]);
+            DrawOutline(x, y, colours[2]);
+            DrawInside(x, y, colours[3]);
+            //DrawDetails(x, y, colours[4], colours[5], colours[6], colours[7]);
         }
 
         /// <summary>
         ///     Draws the border and background
         /// </summary>
-        public void DrawBackground()
+        public void DrawBackground(Color line, Color fill)
         {
             Draw.LineSize = 10;
-            Draw.LineColor = Color.DarkGray;
-            Draw.FillColor = Color.LightGray;
+            Draw.LineColor = line;
+            Draw.FillColor = fill;
             Draw.Square(0, 0, 400);
         }
 
         /// <summary>
         ///     Draws the outline left to right, top to bottom
         /// </summary>
-        public void DrawOutline(int x, int y)
+        public void DrawOutline(int x, int y, Color outlineColour)
         {
             Draw.LineSize = 0;
-            Draw.FillColor = outline;
+            Draw.FillColor = outlineColour;
             // Column 1
             Draw.Rectangle(x + 10, y + 30, 10, 40);
             // Column 2
@@ -130,6 +131,107 @@ namespace Game10003
             // Column 27
             Draw.Rectangle(x + 270, y + 10, 10, 10);
             Draw.Rectangle(x + 270, y + 180, 10, 10);
+        }
+
+        /// <summary>
+        ///     Draws the inside colour of the sprite
+        /// </summary>
+        public void DrawInside(int x, int y, Color fill)
+        {
+            Draw.LineSize = 0;
+            Draw.FillColor = fill;
+            // Column 1 (none)
+            // Column 2
+            Draw.Rectangle(x + 20, y + 30, 10, 40);
+            // Column 3
+            Draw.Rectangle(x + 30, y + 30, 10, 10);
+            Draw.Rectangle(x + 30, y + 50, 10, 40);
+            // Column 4
+            Draw.Rectangle(x + 40, y + 40, 10, 60);
+            // Column 5
+            Draw.Rectangle(x + 50, y + 40, 10, 10);
+            Draw.Rectangle(x + 50, y + 60, 10, 20);
+            // Column 6
+            Draw.Rectangle(x + 60, y + 50, 10, 30);
+            Draw.Rectangle(x + 60, y + 90, 10, 20);
+            // Column 7
+            Draw.Rectangle(x + 70, y + 60, 10, 30);
+            Draw.Rectangle(x + 70, y + 120, 10, 20);
+            // Column 8
+            Draw.Rectangle(x + 80, y + 60, 10, 20);
+            Draw.Rectangle(x + 80, y + 90, 10, 30);
+            Draw.Rectangle(x + 80, y + 130, 10, 10);
+            Draw.Rectangle(x + 80, y + 150, 10, 20);
+            // Column 9
+            Draw.Rectangle(x + 90, y + 60, 10, 10);
+            Draw.Rectangle(x + 90, y + 80, 10, 30);
+            Draw.Rectangle(x + 90, y + 120, 10, 20);
+            Draw.Rectangle(x + 90, y + 160, 10, 10);
+            // Column 10
+            Draw.Rectangle(x + 100, y + 110, 10, 20);
+            Draw.Rectangle(x + 100, y + 160, 10, 10);
+            // Column 11
+            Draw.Rectangle(x + 110, y + 80, 10, 20);
+            Draw.Rectangle(x + 110, y + 110, 10, 10);
+            Draw.Rectangle(x + 110, y + 130, 10, 40);
+            // Column 12
+            Draw.Rectangle(x + 120, y + 90, 10, 10);
+            Draw.Rectangle(x + 120, y + 120, 10, 40);
+            // Column 13
+            Draw.Rectangle(x + 130, y + 90, 10, 50);
+            // Column 14
+            Draw.Rectangle(x + 140, y + 90, 10, 60);
+            // Column 15
+            Draw.Rectangle(x + 150, y + 90, 10, 70);
+            // Column 16
+            Draw.Rectangle(x + 160, y + 80, 10, 10);
+            Draw.Rectangle(x + 160, y + 100, 10, 20);
+            Draw.Rectangle(x + 160, y + 130, 10, 40);
+            // Column 17
+            Draw.Rectangle(x + 170, y + 60, 10, 30);
+            Draw.Rectangle(x + 170, y + 100, 10, 10);
+            Draw.Rectangle(x + 170, y + 120, 10, 50);
+            // Column 18
+            Draw.Rectangle(x + 180, y + 60, 10, 20);
+            Draw.Rectangle(x + 180, y + 120, 10, 10);
+            Draw.Rectangle(x + 180, y + 140, 10, 40);
+            // Column 19
+            Draw.Rectangle(x + 190, y + 50, 10, 30);
+            Draw.Rectangle(x + 190, y + 140, 10, 40);
+            // Column 20
+            Draw.Rectangle(x + 200, y + 50, 10, 30);
+            Draw.Rectangle(x + 200, y + 130, 10, 20);
+            Draw.Rectangle(x + 200, y + 160, 10, 20);
+            // Column 21
+            Draw.Rectangle(x + 210, y + 50, 10, 30);
+            Draw.Rectangle(x + 210, y + 140, 10, 10);
+            Draw.Rectangle(x + 210, y + 160, 10, 30);
+            // Column 22
+            Draw.Rectangle(x + 220, y + 40, 10, 40);
+            Draw.Rectangle(x + 220, y + 150, 10, 20);
+            Draw.Rectangle(x + 220, y + 180, 10, 10);
+            // Column 23
+            Draw.Rectangle(x + 230, y + 20, 10, 50);
+            Draw.Rectangle(x + 230, y + 150, 10, 20);
+            Draw.Rectangle(x + 230, y + 180, 10, 10);
+            // Column 24
+            Draw.Rectangle(x + 240, y + 10, 10, 60);
+            Draw.Rectangle(x + 240, y + 180, 10, 10);
+            // Column 25
+            Draw.Rectangle(x + 250, y + 10, 10, 30);
+            Draw.Rectangle(x + 250, y + 180, 10, 10);
+            // Column 26
+            Draw.Rectangle(x + 260, y + 10, 10, 10);
+            Draw.Rectangle(x + 260, y + 180, 10, 10);
+            // Column 27 (none)
+        }
+
+        /// <summary>
+        ///     Draws the details of the sprite (eye, beak, dark blue spots)
+        /// </summary>
+        public void DrawDetails(int x, int y, Color iris, Color eye, Color beak, Color darkSpots)
+        {
+
         }
     }
 }
