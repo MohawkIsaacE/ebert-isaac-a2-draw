@@ -1,5 +1,6 @@
 ﻿// Include code libraries you need below (use the namespace).
 using System;
+using System.Linq;
 using System.Numerics;
 using System.Threading;
 
@@ -13,6 +14,7 @@ namespace Game10003
     {
         // Place your variables here:
         bool isShinyArticuno = false;
+        bool isRandomColours = false;
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -43,7 +45,37 @@ namespace Game10003
 
             Window.ClearBackground(Color.OffWhite);
 
-            DrawArticuno(55, 60, articunoColours);
+            // Change which sprite to draw based on user input
+            if (Input.IsMouseButtonPressed(MouseInput.Left))
+            {
+                // Flips between shiny and not shiny
+                isShinyArticuno = !isShinyArticuno;
+            }
+            else if (Input.IsKeyboardKeyPressed(KeyboardInput.Space))
+            {
+                isRandomColours = true;
+            }
+
+            // Determine which version of the sprite to draw
+            if (isRandomColours)
+            {
+                for (int i = 0; i < randomColours.Length; i++)
+                {
+                    randomColours[i] = Random.Color();
+                }
+                DrawArticuno(55, 60, randomColours);
+                // Make sure the colours don't change every frame
+                isRandomColours = false;
+            }
+            else if (isShinyArticuno)
+            {
+                DrawArticuno(55, 60, shinyArticunoColours);
+            }
+            else
+            {
+                DrawArticuno(55, 60, articunoColours);
+            }
+            
         }
 
         /// <summary>
