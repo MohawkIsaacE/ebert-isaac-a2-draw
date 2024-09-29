@@ -16,6 +16,15 @@ namespace Game10003
         bool isShinyArticuno = false;
         bool isRandomColours = false;
         Color[] randomColours = new Color[8];
+        Color borderColour = Color.DarkGray;
+        Color backgroundColour = new Color(212, 138, 114);
+        Color outlineColour = Color.Black;
+        Color fillColour = new Color(90, 207, 251);
+        Color pupilColour = new Color(210, 70, 97);
+        Color irisColour = Color.White;
+        Color beakColour = new Color(157, 196, 225);
+        Color detailColour = new Color(11, 85, 208);
+        
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -31,16 +40,28 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
-            Color border = Color.DarkGray;
-            Color background = new Color(212, 138, 114);
-            Color outline = Color.Black;
-            Color inside = new Color(90, 207, 251);
-            Color pupil = new Color(210, 70, 97);
-            Color iris = Color.White;
-            Color beak = new Color(157, 196, 225);
-            Color detail = new Color(11, 85, 208);
-            Color[] articunoColours = [border, background, outline, inside, pupil, iris, beak, detail];
-            Color[] shinyArticunoColours = [border, background, outline, inside, pupil, iris, beak, detail];
+            Color[] articunoColours = 
+                [
+                borderColour, 
+                backgroundColour, 
+                outlineColour, 
+                fillColour, 
+                pupilColour, 
+                irisColour, 
+                beakColour, 
+                detailColour
+                ];
+            Color[] shinyArticunoColours = 
+                [
+                borderColour, 
+                backgroundColour, 
+                outlineColour, 
+                fillColour, 
+                pupilColour, 
+                irisColour, 
+                beakColour, 
+                detailColour
+                ];
 
             Window.ClearBackground(Color.OffWhite);
 
@@ -60,6 +81,7 @@ namespace Game10003
                 isRandomColours = true;
             }
 
+            // Determine which sprite to draw
             if (isRandomColours)
             {
                 DrawArticuno(55, 60, randomColours);
