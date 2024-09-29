@@ -49,7 +49,7 @@ namespace Game10003
                 pupilColour, 
                 irisColour, 
                 beakColour, 
-                detailColour
+                detailColour,
                 ];
 
             Window.ClearBackground(Color.OffWhite);
@@ -87,6 +87,7 @@ namespace Game10003
             DrawBackground(colours[0], colours[1]);
             DrawOutline(x, y, colours[2]);
             DrawInside(x, y, colours[3]);
+            DrawText(x - 20, y + 220, colours[3], colours[1]);
             DrawDetails(x, y, colours[4], colours[5], colours[6], colours[7]);
         }
 
@@ -331,6 +332,46 @@ namespace Game10003
             Draw.Square(x + 240, y + 60, 10);
             // Column 25
             Draw.Square(x + 250, y + 10, 10);
+        }
+
+        /// <summary>
+        ///     Draws the text "CLICK" in big letters at a given location
+        /// </summary>
+        public void DrawText(int x, int y, Color positiveColour, Color negativeColour)
+        {
+            // C - Big ellipse, negative small circle, negative big rectangle
+            Draw.FillColor = positiveColour;
+            Draw.Circle(x + 40, y + 40, 40);
+            Draw.FillColor = negativeColour;
+            Draw.Circle(x + 40, y + 40, 20);
+            Draw.Rectangle(x + 40, y, 40, 80);
+
+            // L - Two big rectangles
+            Draw.FillColor = positiveColour;
+            Draw.Rectangle(x + 60, y, 20, 80);
+            Draw.Square(x + 80, y + 60, 20);
+
+            // I - Three big rectangles
+            Draw.FillColor = positiveColour;
+            Draw.Rectangle(x + 120, y, 60, 20);
+            Draw.Rectangle(x + 120, y + 60, 60, 20);
+            Draw.Rectangle(x + 140, y, 20, 80);
+
+            // C - Big ellipse, negative small circle, negative big rectangle
+            Draw.FillColor = positiveColour;
+            Draw.Circle(x + 240, y + 40, 40);
+            Draw.FillColor = negativeColour;
+            Draw.Circle(x + 240, y + 40, 20);
+            Draw.Rectangle(x + 240, y, 40, 80);
+
+            // K - Big rectangle, three negative triangles
+            Draw.FillColor = positiveColour;
+            Draw.Rectangle(x + 260, y, 60, 80);
+            Draw.FillColor = negativeColour;
+            Draw.Triangle(x + 280, y, x + 280, y + 30, x + 360, y);
+            Draw.Triangle(x + 280, y + 60, x + 320, y + 90, x + 360, y + 60);
+            Draw.Triangle(x + 300, y + 40, x + 360, y + 20, x + 360, y + 60);
+
         }
     }
 }
