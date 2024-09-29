@@ -353,8 +353,12 @@ namespace Game10003
 
             // I - Three big rectangles
             Draw.FillColor = positiveColour;
-            Draw.Rectangle(x + 120, y, 60, 20);
-            Draw.Rectangle(x + 120, y + 60, 60, 20);
+            int offset = 0;
+            for (int i = 0; i < 2; i++)
+            {
+                Draw.Rectangle(x + 120, y + offset, 60, 20);
+                offset += 60;
+            }
             Draw.Rectangle(x + 140, y, 20, 80);
 
             // C - Big ellipse, negative small circle, negative big rectangle
