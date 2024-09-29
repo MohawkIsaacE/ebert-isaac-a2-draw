@@ -31,14 +31,15 @@ namespace Game10003
             Color border = Color.DarkGray;
             Color background = new Color(212, 138, 114);
             Color outline = Color.Black;
-            Color inside = new Color(114, 188, 212);
+            Color inside = new Color(90, 207, 251);
             //Color inside = new Color(134, 197, 218);
-            Color pupil = Color.Red;
+            Color pupil = new Color(210, 70, 97);
             Color iris = Color.White;
-            Color beak = Color.LightGray;
-            Color detail = Color.Blue;
+            Color beak = new Color(157, 196, 225);
+            Color detail = new Color(11, 85, 208);
             Color[] articunoColours = [border, background, outline, inside, pupil, iris, beak, detail];
-            Color[] shinyArticunoColours = [border, background, outline, pupil, iris, beak, detail];
+            Color[] shinyArticunoColours = [border, background, outline, inside, pupil, iris, beak, detail];
+            Color[] randomColours = new Color[8]; 
 
             Window.ClearBackground(Color.OffWhite);
 
