@@ -250,7 +250,53 @@ namespace Game10003
             Draw.Square(x + 60, y + 150, 20);
 
             // dark spots
-
+            Draw.FillColor = darkSpots;
+            // Column 3
+            Draw.Square(x + 30, y + 80, 10);
+            // Column 4
+            Draw.Square(x + 40, y + 60, 10);
+            Draw.Square(x + 40, y + 90, 10);
+            // Column 7
+            Draw.Square(x + 70, y + 80, 10);
+            Draw.Rectangle(x + 70, y + 110, 10, 20);
+            // Column 8
+            Draw.Square(x + 80, y + 130, 10);
+            Draw.Rectangle(x + 80, y + 150, 10, 20);
+            // Column 9
+            Draw.Square(x + 90, y + 130, 10);
+            Draw.Square(x + 90, y + 160, 10);
+            // Column 10
+            Draw.Square(x + 100, y + 160, 10);
+            // Column 11
+            Draw.Square(x + 110, y + 80, 10);
+            Draw.Square(x + 110, y + 160, 10);
+            // Column 15
+            Draw.Square(x + 150, y + 120, 10);
+            // Column 16
+            Draw.Square(x + 160, y + 80, 10);
+            Draw.Square(x + 160, y + 160, 10);
+            // Column 17
+            Draw.Square(x + 170, y + 60, 10);
+            Draw.Square(x + 170, y + 80, 10);
+            // Column 18
+            Draw.Square(x + 180, y + 70, 10);
+            Draw.Square(x + 180, y + 170, 10);
+            // Column 19
+            Draw.Square(x + 190, y + 50, 10);
+            Draw.Square(x + 190, y + 70, 10);
+            // Column 20
+            Draw.Rectangle(x + 200, y + 50, 10, 20);
+            // Column 22
+            Draw.Square(x + 220, y + 60, 10);
+            // Column 23
+            Draw.Square(x + 230, y + 20, 10);
+            Draw.Square(x + 230, y + 50, 10);
+            // Column 24
+            Draw.Square(x + 240, y + 20, 10);
+            Draw.Square(x + 240, y + 40, 10);
+            Draw.Square(x + 240, y + 60, 10);
+            // Column 25
+            Draw.Square(x + 250, y + 10, 10);
         }
     }
 }
