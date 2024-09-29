@@ -13,7 +13,6 @@ namespace Game10003
     public class Game
     {
         // Place your variables here:
-        bool isShinyArticuno = false;
         bool isRandomColours = false;
         Color[] randomColours = new Color[8];
         Color borderColour = Color.DarkGray;
@@ -40,18 +39,8 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
+            // Variables
             Color[] articunoColours = 
-                [
-                borderColour, 
-                backgroundColour, 
-                outlineColour, 
-                fillColour, 
-                pupilColour, 
-                irisColour, 
-                beakColour, 
-                detailColour
-                ];
-            Color[] shinyArticunoColours = 
                 [
                 borderColour, 
                 backgroundColour, 
@@ -66,13 +55,11 @@ namespace Game10003
             Window.ClearBackground(Color.OffWhite);
 
             // Change which sprite to draw based on user input
-            if (Input.IsMouseButtonPressed(MouseInput.Left))
+            if (Input.IsMouseButtonPressed(MouseInput.Right))
             {
-                // Flips between shiny and not shiny
-                isShinyArticuno = !isShinyArticuno;
                 isRandomColours = false;
             }
-            else if (Input.IsKeyboardKeyPressed(KeyboardInput.Space))
+            else if (Input.IsMouseButtonPressed(MouseInput.Left))
             {
                 for (int i = 0; i < randomColours.Length; i++)
                 {
@@ -85,10 +72,6 @@ namespace Game10003
             if (isRandomColours)
             {
                 DrawArticuno(55, 60, randomColours);
-            }
-            else if (isShinyArticuno)
-            {
-                DrawArticuno(55, 60, shinyArticunoColours);
             }
             else
             {
