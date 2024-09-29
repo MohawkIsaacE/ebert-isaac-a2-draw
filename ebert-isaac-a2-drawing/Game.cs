@@ -15,6 +15,7 @@ namespace Game10003
         // Place your variables here:
         bool isShinyArticuno = false;
         bool isRandomColours = false;
+        Color[] randomColours = new Color[8];
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -22,7 +23,7 @@ namespace Game10003
         public void Setup()
         {
             Window.SetSize(400, 400);
-            Window.SetTitle("Pokemon: Articuno");
+            Window.SetTitle("Articuno Sprite");
         }
 
         /// <summary>
@@ -34,14 +35,12 @@ namespace Game10003
             Color background = new Color(212, 138, 114);
             Color outline = Color.Black;
             Color inside = new Color(90, 207, 251);
-            //Color inside = new Color(134, 197, 218);
             Color pupil = new Color(210, 70, 97);
             Color iris = Color.White;
             Color beak = new Color(157, 196, 225);
             Color detail = new Color(11, 85, 208);
             Color[] articunoColours = [border, background, outline, inside, pupil, iris, beak, detail];
             Color[] shinyArticunoColours = [border, background, outline, inside, pupil, iris, beak, detail];
-            Color[] randomColours = new Color[8]; 
 
             Window.ClearBackground(Color.OffWhite);
 
@@ -50,22 +49,20 @@ namespace Game10003
             {
                 // Flips between shiny and not shiny
                 isShinyArticuno = !isShinyArticuno;
+                isRandomColours = false;
             }
             else if (Input.IsKeyboardKeyPressed(KeyboardInput.Space))
-            {
-                isRandomColours = true;
-            }
-
-            // Determine which version of the sprite to draw
-            if (isRandomColours)
             {
                 for (int i = 0; i < randomColours.Length; i++)
                 {
                     randomColours[i] = Random.Color();
                 }
+                isRandomColours = true;
+            }
+
+            if (isRandomColours)
+            {
                 DrawArticuno(55, 60, randomColours);
-                // Make sure the colours don't change every frame
-                isRandomColours = false;
             }
             else if (isShinyArticuno)
             {
@@ -75,7 +72,6 @@ namespace Game10003
             {
                 DrawArticuno(55, 60, articunoColours);
             }
-            
         }
 
         /// <summary>
