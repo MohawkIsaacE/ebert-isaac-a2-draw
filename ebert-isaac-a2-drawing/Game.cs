@@ -1,6 +1,7 @@
 ﻿// Include code libraries you need below (use the namespace).
 using System;
 using System.Numerics;
+using System.Threading;
 
 // The namespace your code is in.
 namespace Game10003
@@ -12,10 +13,6 @@ namespace Game10003
     {
         // Place your variables here:
         bool isShinyArticuno = false;
-        Color border = Color.DarkGray;
-        Color background = Color.LightGray;
-        Color outline = Color.Black;
-        Color inside = Color.Blue;
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -31,8 +28,17 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
-            Color[] articunoColours = [border, background, outline, inside];
-            Color[] shinyArticunoColours = [border, background, outline];
+            Color border = Color.DarkGray;
+            Color background = new Color(212, 138, 114);
+            Color outline = Color.Black;
+            Color inside = new Color(114, 188, 212);
+            //Color inside = new Color(134, 197, 218);
+            Color pupil = Color.Red;
+            Color iris = Color.White;
+            Color beak = Color.LightGray;
+            Color detail = Color.Blue;
+            Color[] articunoColours = [border, background, outline, inside, pupil, iris, beak, detail];
+            Color[] shinyArticunoColours = [border, background, outline, pupil, iris, beak, detail];
 
             Window.ClearBackground(Color.OffWhite);
 
@@ -47,7 +53,7 @@ namespace Game10003
             DrawBackground(colours[0], colours[1]);
             DrawOutline(x, y, colours[2]);
             DrawInside(x, y, colours[3]);
-            //DrawDetails(x, y, colours[4], colours[5], colours[6], colours[7]);
+            DrawDetails(x, y, colours[4], colours[5], colours[6], colours[7]);
         }
 
         /// <summary>
@@ -156,7 +162,7 @@ namespace Game10003
             Draw.Rectangle(x + 60, y + 90, 10, 20);
             // Column 7
             Draw.Rectangle(x + 70, y + 60, 10, 30);
-            Draw.Rectangle(x + 70, y + 120, 10, 20);
+            Draw.Rectangle(x + 70, y + 110, 10, 20);
             // Column 8
             Draw.Rectangle(x + 80, y + 60, 10, 20);
             Draw.Rectangle(x + 80, y + 90, 10, 30);
@@ -229,8 +235,21 @@ namespace Game10003
         /// <summary>
         ///     Draws the details of the sprite (eye, beak, dark blue spots)
         /// </summary>
-        public void DrawDetails(int x, int y, Color iris, Color eye, Color beak, Color darkSpots)
+        public void DrawDetails(int x, int y, Color pupil, Color iris, Color beak, Color darkSpots)
         {
+            // eye
+            Draw.FillColor = pupil;
+            Draw.Square(x + 90, y + 150, 10);
+
+            Draw.FillColor = iris;
+            Draw.Rectangle(x + 100, y + 140, 10, 20);
+
+            // beak
+            Draw.Square(x + 60, y + 170, 10);
+            Draw.FillColor = beak;
+            Draw.Square(x + 60, y + 150, 20);
+
+            // dark spots
 
         }
     }
